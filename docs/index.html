@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1 - Hello Cloud API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #1f2937;
+    }
+
+    h1, h2 {
+      color: #1d4ed8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 30px;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #dbeafe;
+    }
+
+    code {
+      background: #f1f5f9;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bài 1: Lập trình trên máy ảo đám mây đầu tiên</h1>
+
+  <p><strong>Họ tên:</strong> Nguyễn Võ Trí Dũng</p>
+  <p><strong>MSSV:</strong> 2324802010181</p>
+  <p>
+    <strong>Repository:</strong>
+    <a href="https://github.com/tridung13205-it/notes-api-2324802010181">
+      GitHub repository
+    </a>
+  </p>
+
+  <h2>1. Bảng so sánh máy cá nhân và Codespaces</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tiêu chí</th>
+        <th>Máy cá nhân</th>
+        <th>Codespace</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Thời gian từ lúc bắt đầu đến khi chạy được <code>node -v</code></td>
+        <td>16:48 5/11/2026</td>
+        <td>17:03 5/11/2026</td>
+      </tr>
+      <tr>
+        <td>Số CPU, RAM (từ API)</td>
+        <td>Điền thông tin máy cá nhân</td>
+        <td>2 CPU, 7.8 GB RAM</td>
+      </tr>
+      <tr>
+        <td>Hệ điều hành</td>
+        <td>Điền Windows/macOS/Linux trên máy cá nhân</td>
+        <td>Linux 6.8.0-1064-azure</td>
+      </tr>
+      <tr>
+        <td>Cách truy cập từ thiết bị khác</td>
+        <td>Cần cấu hình mạng nội bộ hoặc mở cổng thủ công</td>
+        <td>Dùng URL HTTPS do GitHub Codespaces cung cấp khi port 3000 được chuyển Public</td>
+      </tr>
+      <tr>
+        <td>Chi phí, đo bằng gì</td>
+        <td>Chi phí mua máy, điện và Internet</td>
+        <td>Đo theo core-hours và dung lượng lưu trữ Codespaces trên GitHub Billing Usage</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Năm đặc tính NIST qua trải nghiệm thực tế</h2>
+
+  <ol>
+    <li>
+      <strong>Tự phục vụ theo yêu cầu:</strong>
+      Tôi tự tạo Codespace từ repository GitHub trong vài thao tác, không cần quản trị viên cấp máy.
+    </li>
+    <li>
+      <strong>Truy cập mạng rộng:</strong>
+      API chạy trên port 3000 có thể truy cập bằng URL HTTPS từ máy tính và điện thoại.
+    </li>
+    <li>
+      <strong>Gộp tài nguyên:</strong>
+      Codespace được GitHub cấp phát từ hạ tầng dùng chung; hostname của môi trường là
+      <code>codespaces-e298bb</code>.
+    </li>
+    <li>
+      <strong>Co giãn nhanh:</strong>
+      Có thể tạo, dừng hoặc tạo lại Codespace nhanh theo nhu cầu học tập.
+    </li>
+    <li>
+      <strong>Dịch vụ đo lường được:</strong>
+      GitHub ghi nhận số core-hours và dung lượng Codespaces trong mục Billing Usage.
+    </li>
+  </ol>
+
+  <h2>3. Kết quả API</h2>
+
+  <p>
+    Endpoint <code>GET /</code> trả về JSON có các trường
+    <code>host</code>, <code>cpus</code>, <code>memoryGB</code>,
+    <code>uptimeSec</code> và <code>time</code>.
+  </p>
+
+  <h2>4. Câu hỏi phản biện</h2>
+
+  <h3>Câu 1</h3>
+  <p>
+    Sau khi Stop rồi Start lại Codespace, trường <code>host</code> có thể thay đổi.
+    Điều này cho thấy môi trường được cấp phát động từ một kho tài nguyên chung,
+    không phải một máy vật lý cố định của riêng sinh viên.
+  </p>
+
+  <h3>Câu 2</h3>
+  <p>
+    GitHub Codespaces gần với PaaS cho người học: GitHub quản lý hạ tầng,
+    máy chủ và môi trường nền; sinh viên quản lý mã nguồn, thư viện của dự án
+    và ứng dụng Node.js. Codespaces cũng có một số đặc điểm IaaS vì người dùng
+    được dùng Terminal và tùy chỉnh môi trường.
+  </p>
+
+  <h3>Câu 3</h3>
+  <p>
+    Cách cài môi trường trên từng máy phòng lab mất thời gian và dễ bị khác phiên bản
+    phần mềm giữa các máy. Codespaces tạo môi trường thống nhất từ repository nhanh hơn.
+    Rủi ro mới là phụ thuộc Internet, tài khoản đám mây và nguy cơ lộ thông tin nếu
+    mở port Public hoặc commit tệp chứa khóa bí mật.
+  </p>
+</body>
+</html>

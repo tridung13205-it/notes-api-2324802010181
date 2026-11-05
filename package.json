@@ -1,0 +1,27 @@
+{
+  "name": "notes-api-2324802010181",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+  "start": "node src/server.js",
+  "test": "node --test"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tridung13205-it/notes-api-2324802010181.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tridung13205-it/notes-api-2324802010181/issues"
+  },
+  "homepage": "https://github.com/tridung13205-it/notes-api-2324802010181#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
